@@ -132,7 +132,6 @@ ul{
 	box-shadow: 0 1px 0 #B4B3B3;
 }
 
-
 .footer a {
 	color: #78828D
 }
@@ -149,6 +148,9 @@ ul{
 }
 .copy{
     margin-top: 10vh;
+}
+footer{ 
+    margin-top: 2vh;
 }
  
 @media only screen and (min-width: 300px) and (max-width: 500px){
