@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{% static 'styles/header.css' %}">
     <link rel="stylesheet" href="{% static 'styles/card.css' %}">
     <link rel="stylesheet" href="{% static 'styles/nav.css' %}">
-    <link rel="stylesheet" href="{% static 'nav.js' %}">
+    <link rel="stylesheet" href="{% static 'footer.css' %}">
 
     <title>AFS-220 Coders Cafe</title>
   </head>
@@ -69,8 +69,40 @@
         {% endblock %}
       </div>   
 
-    <footer>
-        <p class="footer">&copy;2021 Web Dev Students</p>           
+      <footer>
+        <div class="footer" id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <h4> Coder Cafe </h4>
+                    </div>
+                    <div class="col-lg-3 col-sm-2 col-xs-3">
+                        <h3><a class="text-white" href="{% url 'contact' %}" style="margin-top: 5em">Contact </a> </h3>
+                        <ul>
+                            <li><a class="email"href="#"> info@codercafe.com </a></li>
+                            <br/>
+                            <li> <p> 1234 Coder Cafe Rd </p> </li>
+                            <li> <p> Coder, USA </p> </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-sm-2 col-xs-3">
+                        <ul>
+                            <li> <h5> <a href="{% url 'about' %}" style="margin-top: 5em"> ABOUT US</a> <h5></li>
+                            <li> <h5><a href="{% url 'menu' %}"> MENU </a> <h5></li>
+                            <li> <h5><a href="{% url 'order' %}"> ORDER</a> <h5></li>
+                            <li> <h5><a href="{% url 'cart' %}"> CART </a> <h5></li>
+                        </ul>
+                    </div> 
+            </div>
+        </div>
+                              
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="pull-left copyright"> Copyright © Coder Cafe 2021. All right reserved. </p>
+           
+            </div>
+        </div> 
+    
     </footer>   
 
     <script src="{% static 'nav.js' %}"></script>
