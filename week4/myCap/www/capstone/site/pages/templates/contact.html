@@ -5,10 +5,10 @@
 <div class="container">
     <h1 class="text-center page-title">Contact us</h1>
   
-{% if submitted %}
+    {% if submitted %}
    <p class="note text-center">Your message was submitted successfully. Thank you!</p>
  
-{% else %}
+    {% else %}
     <form class="contact-form" action="{% url 'contact' %}" method="post" >
         {% csrf_token %}
         <div class="form-group">
@@ -31,9 +31,8 @@
     </form>
     {% endif %}
 </div>
- 
 
-    {% endblock content %}
+{% endblock content %}
 
 
     
