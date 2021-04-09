@@ -5,6 +5,6 @@ services:
     build: .
     container_name: william-kipp-django-apache
     ports:
-      - '8080:80'
+      - '8005:80'
     volumes: 
       - ./www:/var/www/html
