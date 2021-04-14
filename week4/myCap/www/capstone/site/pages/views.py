@@ -109,3 +109,29 @@ def getcart(request):
             return render(request, 'cart.html', { 'nodata': True})
 
     return render(request, 'cart.html')
+
+def cateringOrder(request):
+    submitted = False
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        meat = request.POST.get('meat')
+        side1 = request.POST.get('side1')
+        side2 = request.POST.get('side2')
+        price = request.POST.get('price')
+
+        order_data = Carts(name=name,meat=meat, side1=side1, side2=side2,price=price)
+
+        order_data.save()
+        return render(request, 
+         'cateringOrder.html', {'submitted': True})
+
+        
+    else:
+         return render(request, 
+         'cateringOrder.html', {'submitted': False})
+ 
+    return render(request, 
+         'cateringOrder.html', {'submitted': False}
+       )
+
+    return render(request, "cateringOrder.html" )
