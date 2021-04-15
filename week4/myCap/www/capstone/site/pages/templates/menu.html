@@ -12,7 +12,7 @@
                         <div class="border-bottom border-info">
                             <h2 class="card-title text-center pl-3">{{item.name}}</h2>          
                             <h3 class="menu-card-text">{{item.description}}</h3>
-                            <h3 class="menu-card-subtitle mb-2 text-muted ">${{item.price}}</h3>
+                            <h3 class="menu-card-subtitle mb-2 text-muted ">${{item.price | floatformat:2}} Per Person</h3>
                         </div>
                     </li>
                     
@@ -22,16 +22,13 @@
             {% endfor %} 
 
             <div>
-                <h2 class="text-center"><strong>Sides</strong></h2>
+                <h2 class="text-center"><strong>Choose Two Sides</strong></h2>
                 <ul>
                     <li>
                         <div>
-                            
-                            <h3>Mashed Potatos</h3>
-                            <h3>Turnit Greens</h3>
-                            <h3>Baked Beans</h3>
-                            <h3>Baby Red Potatos</h3>
-                            <h3>Macaroni</h3>
+                            {% for item in side %}
+                                <h3>{{item.name}}</h3>
+                            {% endfor %}
                         </div>
                     </li>
                 </ul>

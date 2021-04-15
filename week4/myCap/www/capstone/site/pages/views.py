@@ -1,7 +1,7 @@
 # from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.shortcuts import render
-from .models import Menu_Item , Service, ContactData, Carts
+from .models import Menu_Item , Service, ContactData, Carts, Side
 # Create your views here.
 
 from django import forms
@@ -27,6 +27,8 @@ class EditMenuPageView(TemplateView):
     template_name = 'editmenu.html'
 
 def menu(request):
+    menu = Menu_Item.objects.all()
+    side = Side.objects.all()
     if request.method == 'POST':
         name = request.POST.get('name')
         description = request.POST.get('description')
@@ -34,18 +36,15 @@ def menu(request):
 
         menu_data = Menu_Item(name=name, description=description,price=price)
 
-        menu_data.save()
-    
-        menu = Menu_Item.objects.all()
+        menu_data.save()   
+        
         
         return render(request, "editmenu.html")
         
     else:
-         menu = Menu_Item.objects.all()
-         return render(request, "menu.html", {'menu': menu})
+         return render(request, "menu.html", {'menu': menu , 'side': side})
 
-    menu = Menu_Item.objects.all()
-    return render(request, "menu.html", {'menu': menu} )
+    return render(request, "menu.html", {'menu': menu, 'side': side} )
 
 def contact(request):
      submitted = False
@@ -66,13 +65,15 @@ def contact(request):
      else:
          return render(request, 
          'contact.html', {'submitted': False})
- 
+    
      return render(request, 
          'contact.html'
        )
 
 def order(request):
     submitted = False
+    menu = Menu_Item.objects.all()
+    side = Side.objects.all()
     if request.method == 'POST':
         name = request.POST.get('name')
         meat = request.POST.get('meat')
@@ -84,16 +85,15 @@ def order(request):
 
         order_data.save()
         return render(request, 
-         'order.html', {'submitted': True})
+         'order.html', {'submitted': True , 'menu': menu , 'side': side})
 
         
     else:
-         return render(request, 
-         'order.html', {'submitted': False})
+        return render(request, 
+         'order.html', {'submitted': False , 'menu': menu , 'side': side})
  
     return render(request, 
-         'order.html', {'submitted': False}
-       )
+         'contact.html', {'menu': menu , 'side': side} )
 
 def getcart(request):
     if request.method == 'POST':
@@ -112,6 +112,9 @@ def getcart(request):
 
 def cateringOrder(request):
     submitted = False
+    menu = Menu_Item.objects.all()
+    side = Side.objects.all()
+
     if request.method == 'POST':
         name = request.POST.get('name')
         meat = request.POST.get('meat')
@@ -122,16 +125,15 @@ def cateringOrder(request):
         order_data = Carts(name=name,meat=meat, side1=side1, side2=side2,price=price)
 
         order_data.save()
+
         return render(request, 
-         'cateringOrder.html', {'submitted': True})
+         'cateringOrder.html', {'submitted': True, 'menu':menu , 'side': side})
 
         
     else:
-         return render(request, 
-         'cateringOrder.html', {'submitted': False})
- 
+        return render(request, 
+         'cateringOrder.html', {'submitted': False, 'menu': menu , 'side': side})
+         
     return render(request, 
-         'cateringOrder.html', {'submitted': False}
+         'cateringOrder.html', {'submitted': False , 'menu': menu, 'side': side}
        )
-
-    return render(request, "cateringOrder.html" )

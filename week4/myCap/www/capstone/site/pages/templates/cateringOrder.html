@@ -24,38 +24,31 @@
             <label for="cateringOrderForm">Choose Meat</label>
             <select name = "meat"class="form-control">
                 <option value="">Choose meat</option>
-                <option value="Baked Chicken">Baked Chicken</option>
-                <option value="Fried Chicken">Fried Chicken</option>
-                <option value="Pork Loin">Pork Loin</option>
-                <option value="Pork Chops">Pork Chops</option>
-                <option value="Barbecue Ribs">Barbecue Ribs</option>
-                <option value="Brisket">Brisket</option>
+                {% for item in menu %}            
+                <option value="{{item.name}}"">{{item.name}}</option>
+                {% endfor %}
             </select>
             </div>
             <div class="form-group">
                 <label for="cateringOrderForm">Side One</label>
                 <select name = "side1"class="form-control">
                     <option value="">Choose side</option>
-                    <option value="Mash Potatoes">Mash Potatoes</option>
-                    <option value="Turnip Greens">Turnip Greens</option>
-                    <option value="Baked Beans">Baked Beans</option>
-                    <option value="Baby Red Potatos">Baby Red Potatos</option>
-                    <option value="Macaroni">Macaroni</option>
+                    {% for item in side %}            
+                        <option value="{{item.name}}"">{{item.name}}</option>
+                    {% endfor %}
                 </select>
                 </div>
             <div class="form-group">
                 <label for="cateringOrderForm">Side Two</label>
                 <select name = "side2"class="form-control">
                     <option value="">Choose side</option>
-                    <option value="Mash Potatoes">Mash Potatoes</option>
-                    <option value="Turnip Greens">Turnip Greens</option>
-                    <option value="Baked Beans">Baked Beans</option>
-                    <option value="Baby Red Potatos">Baby Red Potatos</option>
-                    <option value="Macaroni">Macaroni</option>
+                    {% for item in side %}            
+                        <option value="{{item.name}}"">{{item.name}}</option>
+                    {% endfor %}
                 </select>
             </div> 
             <div class="form-group">
-                <label for="exampleFormControlInput1">Number of people</label>
+                <label for="cateringOrderForm"">Number of people</label>
                 <input style="display:block;" type="number" name="price" min="10" max="300" step="10" placeholder="Up to 300">
             </div>
             <button type="submit" class="btn btn-primary mb-2">Submit order</button>   
