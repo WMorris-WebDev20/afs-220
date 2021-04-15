@@ -30,7 +30,7 @@ def menu(request):
     if request.method == 'POST':
         name = request.POST.get('name')
         description = request.POST.get('description')
-        price = request.POST.get('price')
+        price = "20.00"
 
         menu_data = Menu_Item(name=name, description=description,price=price)
 
@@ -135,3 +135,18 @@ def cateringOrder(request):
     return render(request, 
          'cateringOrder.html', {'submitted': False , 'menu': menu, 'side': side}
        )
+
+def saveSide(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+
+        sides = Side(name=name)
+        sides.save()   
+        
+        
+        return render(request, "editmenu.html")
+        
+    else:
+         return render(request, "editmenu.html")
+
+    return render(request, "editmenu.html" )
