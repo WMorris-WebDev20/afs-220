@@ -7,24 +7,22 @@ from .models import Menu_Item , Service, ContactData, Carts, Side
 from django import forms
 from django.http import HttpResponseRedirect
 from django.db import connection
- 
 
-def home(request):
-
-    service = Service.objects.all()
-    return render(request, "home.html", {'service':service} )
 
 class CateringPageView(TemplateView):
     template_name = 'catering.html'
 
-# class MenuPageView(TemplateView):
-#     template_name = 'menu.html'
 
 class AboutPageView(TemplateView):
     template_name = 'about.html'
 
 class EditMenuPageView(TemplateView):
     template_name = 'editmenu.html'
+
+def home(request):
+
+    service = Service.objects.all()
+    return render(request, "home.html", {'service':service} )
 
 def menu(request):
     menu = Menu_Item.objects.all()

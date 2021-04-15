@@ -13,7 +13,7 @@
     </div>
   
     {% if submitted %}
-   <p class="note text-center">Your message was submitted successfully. Thank you!</p>
+        <p class="note text-center">Your message was submitted successfully. Thank you!</p>
  
     {% else %}
     <form class="contact-form" action="{% url 'contact' %}" method="post" >
@@ -22,19 +22,24 @@
             <label for="contactForm">Name</label>
             <input type="text" class="form-control" id="contactForm" placeholder="Name" name="name">
         </div>
+
         <div class="form-group">
             <label for="contactForm">Email</label>
             <input type="email" class="form-control" id="contactForm" placeholder="Email" name="email">
         </div>
+
         <div class="form-group">
             <label for="contactForm">Subject</label>
             <input type="text" class="form-control" id="contactForm" placeholder="Subject" name="subject">
         </div>
+
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Message</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
         </div>
+
         <button type="submit" class="btn btn-primary mb-2">Submit</button>
+        
     </form>
     {% endif %}
 </div>

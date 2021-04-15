@@ -17,5 +17,4 @@ urlpatterns = [
     path('cart/', views.getcart, name='cart'),
     path('cateringOrder/', views.cateringOrder, name='cateringOrder'),
 
-     
 ]
